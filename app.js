@@ -1,28 +1,23 @@
 // core module imports
+const path = require('path');
 // third party package
 
-const path = require('path')
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const app = express()
+const app = express();
 
-const adminRoutes = require('./routes/admin')
-const shopRoutes = require('./routes/shop')
-// const { response } = require('express')
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
-app.use(express.static(path.join(__dirname, 'public'))) //serves files statically, comes with express
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-//outsourced routes
-app.use('/admin', adminRoutes)
-app.use('/shop', shopRoutes)
+app.use('/admin', adminData.routes);
+app.use(shopRoutes);
 
-//cath all route
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
-})
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+});
 
-app.listen(3000)
+app.listen(3000);

@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('node-complete', 'root', '#######', {
+//have to set up local connection once cloned
+const sequelize = new Sequelize('node-complete', 'root', 'bangarang', {
     dialect: 'mysql',
     host: 'localhost'
 })
@@ -14,7 +15,7 @@ module.exports = sequelize
 //     host: 'localhost',
 //     user: 'root',
 //     database: 'node-complete',
-//     password: 'Bangarang00!!'
+//     password: '###########'
 // })
 
 // module.exports = pool.promise()

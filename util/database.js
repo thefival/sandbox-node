@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 
 //have to set up local connection once cloned
-const sequelize = new Sequelize('node-complete', 'root', 'bangarang', {
+const sequelize = new Sequelize('node-complete', 'root', '######', {
     dialect: 'mysql',
     host: 'localhost'
 })

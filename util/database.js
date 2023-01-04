@@ -1,12 +1,18 @@
 const Sequelize = require('sequelize')
 
 //have to set up local connection once cloned
-const sequelize = new Sequelize('node-complete', 'root', '######', {
+const sequelize = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, {
     dialect: 'mysql',
-    host: 'localhost'
+    host: process.env.HOST
 })
 
 module.exports = sequelize
+// const sequelize = new Sequelize('node-complete', 'root', '######', {
+//     dialect: 'mysql',
+//     host: 'localhost'
+// })
+
+// module.exports = sequelize
 
 
 // const mysql = require('mysql2')
